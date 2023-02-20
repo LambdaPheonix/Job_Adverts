@@ -7,7 +7,7 @@
     // checks the username and password returns boolean
     function check_username_password($uname,$psw,$tbl,&$msg){
         $conn =  mysqli_connect($GLOBALS['server'],$GLOBALS['user'],$GLOBALS['PW'],$GLOBALS['db']) or die("could not connect to db". mysqli_connect_error());
-        $sql = "SELECT `name`,`password` FROM $tbl WHERE `name` = '$uname' ";
+        $sql = "SELECT name, password FROM $tbl WHERE name = '$uname' ";
         if ($query =  mysqli_query($conn,$sql)) {
             if (mysqli_num_rows($query)>0){    
                 $row = mysqli_fetch_assoc($query);
@@ -19,7 +19,7 @@
                     return false;    
                 }
             } else {
-                $msg ="username does not exist";
+                $msg ="username does not exist" . $uname . " : " . $psw;
                 return false;
             }
         } else {
@@ -45,10 +45,11 @@
         </script>";
     }
 
-    function sanitizeInput(&$beforeSanitize){ // cleans input from any  unwanted chars or XSS
+    function sanitizeInput($beforeSanitize){ // cleans input from any  unwanted chars or XSS
         $beforeSanitize = trim($beforeSanitize);
         $beforeSanitize = stripslashes($beforeSanitize);
-        $beforeSanitize = htmlspecialchars($beforeSanitize);        
+        $beforeSanitize = htmlspecialchars($beforeSanitize);  
+        return $beforeSanitize ;     
        
     }
 

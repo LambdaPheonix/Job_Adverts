@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $tbl = "tbl_user_details";
     $msg = '';
     // checks username and password
-    if(check_username_password($uname,$psw,$tbl,$msg)){
+    if(check_username_password($uname,$psw,$tbl,$msg)){   
         $user_id = get_user_id($uname,$tbl);
         echo $msg;
     }  else {
