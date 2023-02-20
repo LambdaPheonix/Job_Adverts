@@ -208,6 +208,10 @@ button:hover {
   display: table;
 }
 
+.signup {
+    width: 50%;
+}
+
 /* Change styles for cancel button and signup button on extra small screens */
 @media screen and (max-width: 300px) {
   .cancelbtn, .signupbtn {
@@ -281,18 +285,21 @@ button:hover {
 var modal = document.getElementById('Login_form');
 var modal2 = document.getElementById('Sign_up_form');
 
-// When the user clicks anywhere outside of the modal, close it
+// When the user clicks anywhere outside of the modal, close i
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
 }
+
 window.onclick = function(event) {
     if (event.target == modal2) {
         modal2.style.display = "none";
     }
 }
+
 </script>
 
+<?php echo $GLOBALS['msg']?>
 </body>
 </html>
