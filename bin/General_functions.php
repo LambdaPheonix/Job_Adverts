@@ -15,11 +15,11 @@
                     $msg = "login Success";
                     return true;     
                 } else {
-                    $msg ="login has failed. Password or username is incorrect". $row['password']. " ". $row['name'];
+                    $msg ="login has failed. Password or username is incorrect";
                     return false;    
                 }
             } else {
-                $msg ="username does not exist" . $uname . " : " . $psw;
+                $msg ="username does not exist";
                 return false;
             }
         } else {
